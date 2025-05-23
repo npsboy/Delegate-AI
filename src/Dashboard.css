@@ -1,0 +1,118 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #1a1a1a;
+  padding: 40px;
+}
+
+.sidebar h1 {
+  font-size: 30px;
+  margin-bottom: 70px;
+}
+
+.sidebar .highlight {
+  color: #f7931e;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: rgb(187, 184, 184);
+  cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px;
+  padding-bottom: 120px;
+  background: center center no-repeat;
+  background-size: cover;
+}
+
+.center-section{
+  max-width: 400px;
+}
+
+.disec {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.committee_logo {
+  width: 60px;
+    height: 50px;
+    vertical-align: bottom;
+    margin-left: 20px;
+}
+
+.agenda-label {
+  color: #f7931e;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.agenda-text {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.country {
+  font-size: 32px;
+  font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.flag {
+    margin-left: 30px;
+    height: 30px;
+    width: 45px;
+}
+
+.label {
+  color: #f7931e;
+  font-weight: bold;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #565451;
+  margin: 20px 0;
+}   
+
+.stance-label {
+  color: #f7931e;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.stance-text {
+  font-size: 18px;
+  line-height: 1.5;
+  width: 300px;
+}

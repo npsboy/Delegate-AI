@@ -14,6 +14,11 @@ body {
   justify-content: start;
   min-height: 100vh;
   padding: 2rem;
+  padding-top: 30px ;
+}
+
+.homepage{
+  padding-top: 30px;
 }
 
 header .committees {
@@ -60,7 +65,7 @@ main h1 {
   margin-bottom: 2rem;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +73,7 @@ form {
   width: 300px;
 }
 
-form input {
+.form input, select {
   width: 100%;
   padding: 0.8rem 1rem;
   background-color: #1a1a1a;
@@ -78,11 +83,11 @@ form input {
   font-size: 1rem;
 }
 
-form input::placeholder {
+.form input::placeholder {
   color: #888;
 }
 
-form button {
+.form button {
   width: 100%;
   padding: 0.8rem 1rem;
   background-color: #ff6a00;
@@ -95,6 +100,6 @@ form button {
   transition: background-color 0.3s ease;
 }
 
-form button:hover {
+.form button:hover {
   background-color: #e65c00;
 }

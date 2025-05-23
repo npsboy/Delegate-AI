@@ -1,0 +1,26 @@
+.sidebar {
+  width: 300px;
+  background-color: #1a1a1a;
+  padding: 40px;
+}
+
+.sidebar h1 {
+  font-size: 30px;
+  margin-bottom: 70px;
+}
+
+.sidebar .highlight {
+  color: #f7931e;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: rgb(187, 184, 184);
+  cursor: pointer;
+}

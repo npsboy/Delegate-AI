@@ -1,0 +1,9 @@
+.toggle-switch .MuiSwitch-switchBase.Mui-checked {
+  color: #ED7D31; /* Thumb color */
+}
+.toggle-switch .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #ED7D31; /* Track color when checked */
+}
+.toggle-switch .MuiSwitch-track {
+  background-color: lightgray; /* Track color when unchecked */
+}

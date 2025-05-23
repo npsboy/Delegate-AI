@@ -1,24 +1,31 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Dashboard from './Dashboard';
+import './UserContext';
+import { useState } from 'react';
+import UserContext from './UserContext';
+import PositionPaper from './PositionPaper';
+import GSL from './GSL';
 
 function App() {
+  const [Delegation, setDelegation] = useState(null);
+  const [Agenda, setAgenda] = useState(null);
+  const [Committee, setCommittee] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee}}>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/position-paper" element={<PositionPaper />} />
+            <Route path="/gsl" element={<GSL />} />
+          </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

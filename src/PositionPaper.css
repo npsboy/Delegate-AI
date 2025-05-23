@@ -1,0 +1,162 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    gap: 0px;
+    padding: 10px;
+}
+
+.position-paper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    height: 90vh;
+    width: 45vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    overflow: auto;
+}
+.settings {
+    padding: 40px;
+    height: 90vh;
+    width: 20vw;
+    margin-left: 0px;
+}
+.un_logo{
+    filter: brightness(0%);
+    align-self: center;
+    margin-top: 20px;
+    height: 200px;
+    width: 230px;
+}
+#delegate_ai{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 750;
+    font-size: 35px;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+#pls_wait{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 500;
+    font-size: 15px;
+    align-self: center;
+}
+.loading {
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.settings h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.settings label {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.regenerate {
+    margin-top: 30px;
+    cursor: pointer;
+}
+.regenerate_text{
+    font-size: 22px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.regenerate_img{
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.generate-button{
+    background-color: #ED7D31;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    align-self: center;
+    margin-top: 40px;
+}
+
+.markdown {
+  line-height: 1.6; 
+}
+
+.markdown h1, h2, h3, h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.position-paper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.download_section{
+    position: sticky;
+    bottom: 0;
+    left: 100%;
+    display: flex;
+    width: 150px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.position-paper-content {
+    padding: 30px;
+    background-color: white;
+    color: black;
+}
+
+.download_button {
+    font-family: Arial, Helvetica, sans-serif !important;
+    cursor: pointer;
+}
+.download_icon{
+    height: 22px;
+    width: 22px;
+    margin-left: 5px;
+    vertical-align: middle;
+}

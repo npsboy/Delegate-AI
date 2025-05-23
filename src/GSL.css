@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #000;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.sidebar {
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 18px;
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.dot.active {
+  background-color: #e6792f;
+  border-color: #e6792f;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.un-logo {
+  width: 100px;
+  margin: 10px auto;
+}
+
+.speech-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.write-button {
+  background-color: #e6792f;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.write-button:hover {
+  background-color: #cc5c10;
+}
