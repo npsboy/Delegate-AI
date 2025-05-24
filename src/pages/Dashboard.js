@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import './Dashboard.css';
-import world_map_dark from './world-map-dark.png';
+import '../pages/Dashboard.css';
 import { useState } from 'react';
 import { useContext } from 'react';
-import UserContext from './UserContext';
-import {send_to_gpt} from "./services/BackendServices";
-import Sidebar from "./Sidebar";
+import UserContext from '../components/UserContext';
+import {send_to_gpt} from "../services/BackendServices";
+import Sidebar from "../components/Sidebar";
 
 function Dashboard() {
     const {Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee} = useContext(UserContext);
@@ -65,7 +64,7 @@ function Dashboard() {
         <div className="app">
             <Sidebar /> 
         
-          <div className="main"  style={{ backgroundImage: `url(${world_map_dark})` }}>
+          <div className="main" style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
             <div className="center-section">
               <h2 className="disec">
                 <span>

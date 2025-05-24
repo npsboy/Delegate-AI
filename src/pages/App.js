@@ -1,12 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Dashboard from './Dashboard';
-import './UserContext';
 import { useState } from 'react';
-import UserContext from './UserContext';
+import UserContext from '../components/UserContext';
 import PositionPaper from './PositionPaper';
 import GSL from './GSL';
 

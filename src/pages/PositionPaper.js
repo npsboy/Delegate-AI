@@ -1,16 +1,13 @@
 import react from "react";
-import './PositionPaper.css';
-import Sidebar from "./Sidebar";
-import loading_gif from './loading-animation.gif';
-import ToggleSwitch from "./ToggleSwitch";
-import regenerate from "./regenerate.png";
+import '../pages/PositionPaper.css';
+import Sidebar from "../components/Sidebar";
+import ToggleSwitch from "../components/ToggleSwitch";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-import UserContext from "./UserContext";
-import {send_to_gpt} from "./services/BackendServices";
+import UserContext from "../components/UserContext";
+import {send_to_gpt} from "../services/BackendServices";
 import ReactMarkdown from 'react-markdown';
-import download_icon from './download.png';
 import html2pdf from "html2pdf.js";
 
 
@@ -89,7 +86,7 @@ function PositionPaper() {
                         <img className="un_logo" src="/icons/un.png"/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <p id="pls_wait">Writing. Please wait...</p>
-                        <img className="loading" src={loading_gif} alt="Loading..." />
+                        <img className="loading" src="/images/loading-animation.gif" alt="Loading..." />
                     </>}
                     {showSetup && <>
                         <img className="un_logo" src="/icons/un.png" style={{height:"130px",  width:"150px"}}/>
@@ -120,7 +117,7 @@ function PositionPaper() {
                         <div className="download_section">
                             <span className="download_button" onClick={handleDownload}>
                                 <a>Download</a>
-                                <img className="download_icon" src={download_icon} alt="Download" />
+                                <img className="download_icon" src="/images/download.png" alt="Download" />
                             </span>
                         </div>
                     </>}
@@ -149,7 +146,7 @@ function PositionPaper() {
 
                         <span className="regenerate" onClick={handleGenerate}>
                             <a className="regenerate_text">Regenerate</a>
-                            <img className="regenerate_img" src={regenerate} alt="Regenerate" />
+                            <img className="regenerate_img" src="/images/regenerate.png" alt="Regenerate" />
                         </span>
                     </>}
 

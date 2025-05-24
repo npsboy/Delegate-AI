@@ -1,8 +1,8 @@
 import React from "react";
-import './Home.css';
+import '../pages/Home.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserContext from './UserContext';
+import UserContext from '../components/UserContext';
 import { useContext } from "react";
 
 function Home() {
