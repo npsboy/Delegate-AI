@@ -134,6 +134,12 @@ body {
     width: 120px;
 }
 
+.card p{
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
 .timeline .topic_title {
     color: #bab6b6;
     font-size: 15px;

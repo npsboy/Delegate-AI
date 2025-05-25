@@ -1,0 +1,88 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #000;
+  border: 2px solid #555;
+  position: relative;
+}
+
+/* Connecting line to next dot */
+.dot::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 70px; /* Adjust based on spacing between timeline items */
+  z-index: -1;
+  background-color: #444;
+}
+
+/* No line after the last dot */
+.timeline:last-child .dot::after {
+  display: none;
+}
+
+.dot.active {
+  background-color: #e6792f;
+  border-color: #e6792f;
+}
+
+.timeline .topic_title {
+    color: #bab6b6;
+    font-size: 15px;
+}
+
+.timeline .text_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline .add{
+    color: #bab6b6;
+}
+
+.timeline{
+    cursor: pointer;
+}
+
+.delete_icon {
+    vertical-align: middle;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 20px;
+  background-color: black !important;
+  border: none;
+  border-bottom: #444 solid 2px;
+  color: white;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-bottom: #e6792f solid 2px;
+}
+
+.timeline:last-child{
+    margin-top: 12px;
+}
