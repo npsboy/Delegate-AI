@@ -8,7 +8,6 @@ import { useContext } from "react";
 import UserContext from "../components/UserContext";
 import {send_to_gpt} from "../services/BackendServices";
 import ReactMarkdown from 'react-markdown';
-import html2pdf from "html2pdf.js";
 
 
 function PositionPaper() {
@@ -28,6 +27,16 @@ function PositionPaper() {
         title: "",
         content: ""
     });
+
+    useEffect(() => {
+        if (localStorage.getItem("positionPaper")) {
+            const savedPositionPaper = JSON.parse(localStorage.getItem("positionPaper"));
+            setPositionPaper(savedPositionPaper);
+            setShowPositionPaper(true);
+            setShowSetup(false);
+            setShowAdjust(true);
+        }
+    }, []);
     
     async function handleGenerate() {
         setShowSetup(false);
@@ -50,43 +59,34 @@ function PositionPaper() {
             title: "Position Paper" + " - " + Delegation,
             content: response
         });
+        localStorage.setItem("positionPaper", JSON.stringify({
+            title: "Position Paper" + " - " + Delegation,
+            content: response
+        }));
         setLoading(false);
         setShowPositionPaper(true);
         console.log(response);
     }
 
-    function handleDownload() {
-        const element = document.getElementById("position-paper-content");
-        console.log(element);
-        if (!element) {
-            alert("Element not found!");
-            return;
-        }
-        html2pdf()
-            .from(element)
-            .set({
-              margin: 0.5,
-              filename: 'markdown.pdf',
-              image: { type: 'jpeg', quality: 0.98 },
-              html2canvas: { scale: 2 },
-              jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            })
-            .save()
-            .then(() => alert('Downloaded!'));
 
-    } 
+
+    function handleDownload() {
+        
+    }
+ 
 
 
     return (
-        <div className="app">
+        <>
+        <div className="position-app">
             <Sidebar /> 
-            <div className="main">
+            <div className="position-main">
                 <div className="position-paper">
                     {loading && <>
                         <img className="un_logo" src="/icons/un.png"/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <p id="pls_wait">Writing. Please wait...</p>
-                        <img className="loading" src="/images/loading-animation.gif" alt="Loading..." />
+                        <img className="pp-loading" src="/images/loading-animation.gif" alt="Loading..." />
                     </>}
                     {showSetup && <>
                         <img className="un_logo" src="/icons/un.png" style={{height:"130px",  width:"150px"}}/>
@@ -153,6 +153,7 @@ function PositionPaper() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

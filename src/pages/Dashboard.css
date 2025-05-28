@@ -6,7 +6,7 @@ body {
     color: white;
 }
 
-.app {
+.dashboard {
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -42,7 +42,7 @@ body {
   cursor: pointer;
 }
 
-.main {
+.dashboard-main {
   flex: 1;
   display: flex;
   justify-content: space-around;
@@ -115,4 +115,40 @@ hr {
   font-size: 18px;
   line-height: 1.5;
   width: 300px;
+}
+
+.dashboard-h1{
+  font-size: 50px;
+  margin-top: 30px;
+}
+
+#dashboard-un-logo{
+  height: 200px;
+  width: 240px;
+  margin-top: 80px;
+  align-self: center;
+}
+
+#loading-text{
+  text-align: center;
+  align-self: center;
+  margin-top: 10px;
+}
+
+#loading-text-2{
+  color: #95938f;
+  margin-top: 5px;
+}
+
+.loading{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#dashboard-loading-gif{
+  height: 100px;
+  width: 100px;
+  align-self: center;
 }

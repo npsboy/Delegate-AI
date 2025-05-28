@@ -6,7 +6,7 @@ body {
     color: white;
 }
 
-.app {
+.position-app {
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -14,7 +14,7 @@ body {
     padding: 0;
 }
 
-.main {
+.position-main {
     display: flex;
     gap: 0px;
     padding: 10px;
@@ -30,6 +30,7 @@ body {
     width: 45vw;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 70px;
     border-radius: 15px;
     font-family: 'Times New Roman', Times, serif;
     overflow: auto;
@@ -62,7 +63,7 @@ body {
     font-size: 15px;
     align-self: center;
 }
-.loading {
+.pp-loading {
     height: 100px;
     width: 100px;
     align-self: center;
@@ -125,9 +126,10 @@ body {
 
 
 .position-paper h1 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
 }
+
 
 .download_section{
     position: sticky;

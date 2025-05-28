@@ -14,57 +14,92 @@ function Dashboard() {
     const [committee_logo, setCommitteeLogo] = useState(null);
 
     const [stance, setStance] = useState(null);
+    const [loading, setLoading] = useState(false)
+
+    async function fetchCountryData() {
+      try {
+          const response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
+          let data = await response.json();
+          data = data[0]
+          let population = data.population;
+          function numberToWords(num) {
+              if (num >= 1_000_000_000) {
+                  return (num / 1_000_000_000).toFixed(1) + " billion";
+              } else if (num >= 1_000_000) {
+                  return (num / 1_000_000).toFixed(1) + " million";
+              } else if (num >= 1_000) {
+                  return (num / 1_000).toFixed(1) + " thousand";
+              }
+              return num.toString();
+          }
+          population = numberToWords(population);
+          setCountryData({
+              capital: data.capital[0],
+              population: population,
+              flag: data.flags.png,    
+          })
+          localStorage.setItem("CountryData", JSON.stringify({
+              capital: data.capital[0],
+              population: population,
+              flag: data.flags.png,
+          }));
+          
+      } catch (error) {
+          console.error('Error fetching country data:', error);
+      }
+  }
+
+  async function get_stance() {
+      setLoading(true)
+      const response = await send_to_gpt("In one honest line: What is " + Delegation + "’s actual stance on " + Agenda + "?");
+      setStance(response);
+      localStorage.setItem("stance", response);
+      console.log("set stance")
+      setLoading(false)
+
+  }
 
     useEffect(() => {
-        async function fetchCountryData() {
-            try {
-                const response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
-                let data = await response.json();
-                data = data[0]
-                let population = data.population;
+        
+        if (localStorage.getItem("CountryData") && localStorage.getItem("stance")) {
+            setDelegation(localStorage.getItem("delegation"));
+            setAgenda(localStorage.getItem("agenda"));
+            setCommittee(localStorage.getItem("committee"));
+            const storedData = JSON.parse(localStorage.getItem("CountryData"));
+            setCountryData(storedData);
+            setStance(localStorage.getItem("stance"));
+            console.log("committee = ", localStorage.getItem("committee").toLowerCase());
 
-                function numberToWords(num) {
-                    if (num >= 1_000_000_000) {
-                        return (num / 1_000_000_000).toFixed(1) + " billion";
-                    } else if (num >= 1_000_000) {
-                        return (num / 1_000_000).toFixed(1) + " million";
-                    } else if (num >= 1_000) {
-                        return (num / 1_000).toFixed(1) + " thousand";
-                    }
-                    return num.toString();
-                }
-                population = numberToWords(population);
-
-                setCountryData({
-                    capital: data.capital[0],
-                    population: population,
-                    flag: data.flags.png,    
-                })
-                
-            } catch (error) {
-                console.error('Error fetching country data:', error);
-            }
+            if ("/icons/" + localStorage.getItem("committee").toLowerCase() + ".png") {
+              setCommitteeLogo("/icons/" + localStorage.getItem("committee").toLowerCase() + ".png");
+          }
+          else {
+              setCommitteeLogo("/icons/un.png");
+          }
         }
-        fetchCountryData();
+        else{
+          fetchCountryData();
 
-        setCommittee(Committee.trim().toUpperCase());
+          setCommittee(Committee.trim().toUpperCase());
 
-        if ("/icons/" + Committee.trim().toLowerCase() + ".png") {
-            setCommitteeLogo("/icons/" + Committee.toLowerCase() + ".png");
+          if ("/icons/" + Committee.trim().toLowerCase() + ".png") {
+              setCommitteeLogo("/icons/" + Committee.toLowerCase() + ".png");
+          }
+          else {
+              setCommitteeLogo("/icons/un.png");
+          }
+
+          get_stance();
         }
-        else {
-            setCommitteeLogo("/icons/disec.png");
-        }
-
-        setStance(send_to_gpt("In one honest line: What is " + Delegation + "’s actual stance on " + Agenda + "?"));
-
     },[])
 
     return (
-        <div className="app">
+      <>
+      {!loading && <>
+        <div className="dashboard">
             <Sidebar /> 
         
-          <div className="main" style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
+          <div className="dashboard-main" style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
             <div className="center-section">
               <h2 className="disec">
                 <span>
@@ -94,6 +129,17 @@ function Dashboard() {
             </div>
           </div>
         </div>
+        </>}
+        {loading && <>
+        <div className="loading">
+          <img id="dashboard-un-logo" src="./icons/un.png"/>
+          <h1 className="dashboard-h1">Delegate <span className="highlight">AI</span></h1>
+          <p id="loading-text">Loading...</p>
+          <img id="dashboard-loading-gif" src="./images/loading-animation.gif"/>
+          <p id="loading-text-2">Taking too long? Don't worry this happens only once.</p>
+          </div>
+        </>}
+        </>
     );
 }
 

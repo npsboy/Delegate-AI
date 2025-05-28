@@ -7,17 +7,26 @@ function Sidebar() {
     function handleCreatePositionPaper() {
         navigate('/position-paper');
     }
+    function handleDeleteHistory () {
+      localStorage.clear()
+      navigate('/')
+    }
     return (
         <div className="sidebar">
             <h1>
               Delegate <span className="highlight">AI</span>
             </h1>
             <ul>
+              <li onClick={() => navigate('/dashboard')}>Dashboard</li>
               <li onClick={handleCreatePositionPaper}>Create position paper</li>
-              <li>Draft speeches</li>
-              <li>View allies</li>
+              <li onClick={() => navigate('/speeches')}>Draft speeches</li>
+              <li onClick={() => navigate('/allies')}>View allies</li>
             </ul>
-          </div>
+            <span className="delete" onClick={handleDeleteHistory}>
+              <a>Clear Session</a>
+              <img src="./images/delete.png"/>
+            </span>
+        </div>
     )
 }
 

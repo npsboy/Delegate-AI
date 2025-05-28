@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 function SpeechMenu({ speeches, currentId, onSelect, onAdd, onDelete, onChange }) {
     const [hoveredId, setHoveredId] = React.useState(null);
-
     return (
         <div className="menu">
             {speeches.map((speech) => (

@@ -1,7 +1,9 @@
 .sidebar {
-  width: 300px;
+  width: 320px;
   background-color: #1a1a1a;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar h1 {
@@ -22,5 +24,14 @@
   margin-bottom: 20px;
   font-size: 20px;
   color: rgb(187, 184, 184);
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.delete {
+  margin-top: 50px;
   cursor: pointer;
 }

@@ -6,7 +6,8 @@ import Dashboard from './Dashboard';
 import { useState } from 'react';
 import UserContext from '../components/UserContext';
 import PositionPaper from './PositionPaper';
-import GSL from './GSL';
+import Allies from './Allies';
+import Speeches from './Speeches';
 
 function App() {
   const [Delegation, setDelegation] = useState(null);
@@ -20,7 +21,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/position-paper" element={<PositionPaper />} />
-            <Route path="/gsl" element={<GSL />} />
+            <Route path="/speeches" element={<Speeches />} />
+            <Route path="/allies" element={<Allies />} />
           </Routes>
       </BrowserRouter>
     </UserContext.Provider>

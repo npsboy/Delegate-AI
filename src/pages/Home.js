@@ -11,8 +11,17 @@ function Home() {
 
     const {Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee} = useContext(UserContext);
 
-    function handleSubmit() {
+    useEffect(() => {
+        if (localStorage.getItem("delegation") && localStorage.getItem("agenda") && localStorage.getItem("committee")) {
+            setDelegation(localStorage.getItem("delegation"));
+            setAgenda(localStorage.getItem("agenda"));
+            setCommittee(localStorage.getItem("committee"));
+            navigate("/dashboard");
+        }
+    }, []);
 
+    function handleSubmit() {
+        localStorage.clear();
         const delegation = document.getElementById("delegation").value;
         const agenda = document.getElementById("agenda").value;
         let committee = document.getElementById("committee").value;
@@ -41,6 +50,9 @@ function Home() {
                     data = data[0]
                     let name = data.name; 
                     if (name) {
+                        localStorage.setItem("delegation", delegation);
+                        localStorage.setItem("agenda", agenda);
+                        localStorage.setItem("committee", committee);
                         navigate("/dashboard");
                     } 
                     else {
