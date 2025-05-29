@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import '../pages/Dashboard.css';
+import styles from '../pages/Dashboard.module.css';
 import { useState } from 'react';
 import { useContext } from 'react';
 import UserContext from '../components/UserContext';
@@ -95,51 +95,51 @@ function Dashboard() {
 
     return (
       <>
-      {!loading && <>
-        <div className="dashboard">
-            <Sidebar /> 
+        {!loading && <>
+          <div className={styles.dashboard}>
+            <Sidebar />
         
-          <div className="dashboard-main" style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
-            <div className="center-section">
-              <h2 className="disec">
-                <span>
-                    {Committee}  <img  className="committee_logo" src={committee_logo} alt="DISEC" />
-                </span>
-              </h2>
-              <p className="agenda-label">Agenda:</p>
-              <p className="agenda-text">
-                {Agenda ? Agenda : 'Loading...'}
-              </p>
-            </div>
+            <div className={styles.dashboard_main} style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
+              <div className={styles.center_section}>
+                <h2 className={styles.committee_text}>
+                  <span>
+                    {Committee}  <img className={styles.committee_logo} src={committee_logo} alt="DISEC" />
+                  </span>
+                </h2>
+                <p className={styles.agenda_label}>Agenda:</p>
+                <p className={styles.agenda_text}>
+                  {Agenda ? Agenda : 'Loading...'}
+                </p>
+              </div>
         
-            <div className="country-section">
-              <h2 className="country">
-                {Delegation} 
-                <span><img className="flag" src={countryData? countryData.flag : ""}/></span>
-              </h2>
-              <p>
-                <span className="label">Capital:</span> {countryData ? countryData.capital : 'Loading...'}
-              </p>
-              <p>
-                <span className="label">Population:</span> {countryData ? countryData.population : 'Loading...'}
-              </p>
-              <hr />
-              <p className="stance-label">Stance:</p>
-              <p className="stance-text">{stance? stance : 'The stance of this country seems to be unclear'}</p>
+              <div className={styles.country_section}>
+                <h2 className={styles.country}>
+                  {Delegation}
+                  <span><img className={styles.flag} src={countryData ? countryData.flag : ""} /></span>
+                </h2>
+                <p>
+                  <span className={styles.label}>Capital:</span> {countryData ? countryData.capital : 'Loading...'}
+                </p>
+                <p>
+                  <span className={styles.label}>Population:</span> {countryData ? countryData.population : 'Loading...'}
+                </p>
+                <hr />
+                <p className={styles.stance_label}>Stance:</p>
+                <p className={styles.stance_text}>{stance ? stance : 'The stance of this country seems to be unclear'}</p>
+              </div>
             </div>
           </div>
-        </div>
         </>}
         {loading && <>
-        <div className="loading">
-          <img id="dashboard-un-logo" src="./icons/un.png"/>
-          <h1 className="dashboard-h1">Delegate <span className="highlight">AI</span></h1>
-          <p id="loading-text">Loading...</p>
-          <img id="dashboard-loading-gif" src="./images/loading-animation.gif"/>
-          <p id="loading-text-2">Taking too long? Don't worry this happens only once.</p>
+          <div className={styles.loading}>
+            <img id="dashboard-un-logo" src="./icons/un.png" />
+            <h1 className={styles.dashboard_h1}>Delegate <span className={styles.highlight}>AI</span></h1>
+            <p id="loading-text">Loading...</p>
+            <img id="dashboard-loading-gif" src="./images/loading-animation.gif" />
+            <p id="loading-text-2">Taking too long? Don't worry this happens only once.</p>
           </div>
         </>}
-        </>
+      </>
     );
 }
 

@@ -8,6 +8,7 @@ import { useContext } from "react";
 import UserContext from "../components/UserContext";
 import {send_to_gpt} from "../services/BackendServices";
 import ReactMarkdown from 'react-markdown';
+import { useRef } from "react";
 
 
 function PositionPaper() {
@@ -69,9 +70,18 @@ function PositionPaper() {
     }
 
 
+    const printRef = useRef();
 
     function handleDownload() {
         
+        const printContent = printRef.current.innerHTML;
+        const originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        window.location.reload();
+
     }
  
 
@@ -111,7 +121,7 @@ function PositionPaper() {
                         </div>
                     </>}
                     {showPositionPaper && <>
-                        <div className="position-paper-content" id="position-paper-content">
+                        <div className="position-paper-content" id="position-paper-content" ref={printRef}>
                             <ReactMarkdown id="position-paper-md">{positionPaper.content}</ReactMarkdown>
                         </div>
                         <div className="download_section">
@@ -127,7 +137,7 @@ function PositionPaper() {
                 <div className="settings">
 
                     {showAdjust && <>
-                        <h2>Adjust:</h2>
+                        <h2 id="adjust-title">Adjust:</h2>
 
                         <span>
                             <label>Case studies:</label>
