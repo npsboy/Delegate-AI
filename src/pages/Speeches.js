@@ -190,10 +190,10 @@ function Speeches() {
                     )}
                     {loading && <>
                         <h2 className="delegate_ai">Delegate AI</h2>
-                        <img src="/icons/un.png" className="un-logo" alt="UN Logo" />
+                        <img src={process.env.PUBLIC_URL + "/icons/un.png"} className="un-logo" alt="UN Logo" />
                         <h2>{currentSpeech.title}</h2>
                         <p>Writing...</p>
-                        <img className="speeches-loading" src="/images/loading-animation.gif" alt="Loading..." />
+                        <img className="speeches-loading" src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} alt="Loading..." />
 
                     </>}
                 </div>

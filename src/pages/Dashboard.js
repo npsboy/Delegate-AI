@@ -55,7 +55,7 @@ function Dashboard() {
       setStance(response);
       localStorage.setItem("stance", response);
       console.log("set stance")
-      setLoading(false)
+      setLoading(true)
 
   }
 
@@ -132,10 +132,10 @@ function Dashboard() {
         </>}
         {loading && <>
           <div className={styles.loading}>
-            <img id="dashboard-un-logo" src="./icons/un.png" />
-            <h1 className={styles.dashboard_h1}>Delegate <span className={styles.highlight}>AI</span></h1>
-            <p id="loading-text">Loading...</p>
-            <img id="dashboard-loading-gif" src="./images/loading-animation.gif" />
+            <img className={styles.dashboard_un_logo} src="./icons/un.png" />
+            <h1 className={styles.dashboard_title}>Delegate <span className={styles.highlight}>AI</span></h1>
+            <p className={styles.loading_text}>Loading...</p>
+            <img className={styles.dashboard_loading_gif} src="./images/loading-animation.gif" />
             <p id="loading-text-2">Taking too long? Don't worry this happens only once.</p>
           </div>
         </>}

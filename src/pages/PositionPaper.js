@@ -93,13 +93,13 @@ function PositionPaper() {
             <div className="position-main">
                 <div className="position-paper">
                     {loading && <>
-                        <img className="un_logo" src="/icons/un.png"/>
+                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"}/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <p id="pls_wait">Writing. Please wait...</p>
-                        <img className="pp-loading" src="/images/loading-animation.gif" alt="Loading..." />
+                        <img className="pp-loading" src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} alt="Loading..." />
                     </>}
                     {showSetup && <>
-                        <img className="un_logo" src="/icons/un.png" style={{height:"130px",  width:"150px"}}/>
+                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"} style={{height:"130px",  width:"150px"}}/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <div className="settings" style={{alignSelf:"center"}}>
                         <span>
@@ -127,7 +127,7 @@ function PositionPaper() {
                         <div className="download_section">
                             <span className="download_button" onClick={handleDownload}>
                                 <a>Download</a>
-                                <img className="download_icon" src="/images/download.png" alt="Download" />
+                                <img className="download_icon" src={process.env.PUBLIC_URL + "/images/download.png"} alt="Download" />
                             </span>
                         </div>
                     </>}
@@ -156,7 +156,7 @@ function PositionPaper() {
 
                         <span className="regenerate" onClick={handleGenerate}>
                             <a className="regenerate_text">Regenerate</a>
-                            <img className="regenerate_img" src="/images/regenerate.png" alt="Regenerate" />
+                            <img className="regenerate_img" src={process.env.PUBLIC_URL + "/images/regenerate.png"} alt="Regenerate" />
                         </span>
                     </>}
 

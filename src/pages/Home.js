@@ -88,19 +88,19 @@ function Home() {
             <header>
                 <div className="committees">
                     <div className="committee">
-                        <img src="/icons/disec.png" alt="DISEC" />
+                        <img src={process.env.PUBLIC_URL + "/icons/disec.png"} alt="DISEC" />
                         <span>DISEC</span>
                     </div>
                     <div className="committee">
-                        <img src="/icons/ecofin.png" alt="ECOFIN" />
+                        <img src={process.env.PUBLIC_URL + "/icons/ecofin.png"} alt="ECOFIN" />
                         <span>ECOFIN</span>
                     </div>
                     <div className="committee">
-                        <img src="/icons/unhrc.png" alt="UNHRC" />
+                        <img src={process.env.PUBLIC_URL + "/icons/unhrc.png"} alt="UNHRC" />
                         <span>UNHRC</span>
                     </div>
                     <div className="committee">
-                        <img src="/icons/unep.png" alt="UNEP" />
+                        <img src={process.env.PUBLIC_URL + "/icons/unep.png"} alt="UNEP" />
                         <span>UNEP</span>
                     </div>
                 </div>
