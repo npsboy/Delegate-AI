@@ -55,7 +55,7 @@ function Dashboard() {
       setStance(response);
       localStorage.setItem("stance", response);
       console.log("set stance")
-      setLoading(true)
+      setLoading(false)
 
   }
 
@@ -136,7 +136,7 @@ function Dashboard() {
             <h1 className={styles.dashboard_title}>Delegate <span className={styles.highlight}>AI</span></h1>
             <p className={styles.loading_text}>Loading...</p>
             <img className={styles.dashboard_loading_gif} src="./images/loading-animation.gif" />
-            <p id="loading-text-2">Taking too long? Don't worry this happens only once.</p>
+            <p className={styles.loading_text_2}>Taking too long? Don't worry this happens only once.</p>
           </div>
         </>}
       </>

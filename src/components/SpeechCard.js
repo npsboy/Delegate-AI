@@ -7,7 +7,7 @@ function SpeechCard({ id, speeches, writeSpeech }) {
   return (
     <>
       <h2 className="delegate_ai">Delegate AI</h2>
-      <img src="/icons/un.png" className="un-logo" alt="UN Logo" />
+      <img src={process.env.PUBLIC_URL + "/icons/un.png"} className="un-logo" alt="UN Logo" />
       <h2>{speech.title}</h2>
       <p>{speech.subtitle}</p>
       <button onClick={() => writeSpeech(id)}>Write</button>

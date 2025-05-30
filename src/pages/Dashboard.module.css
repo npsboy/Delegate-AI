@@ -143,11 +143,13 @@ hr {
   text-align: center;
   align-self: center;
   margin-top: 10px;
+    color: #95938f;
+
 }
 
-#loading_text-2{
+.loading_text_2{
   color: #95938f;
-  margin-top: 5px;
+  margin-top: 50px;
 }
 
 .loading{
