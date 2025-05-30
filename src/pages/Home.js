@@ -114,7 +114,7 @@ function Home() {
                 <div className="form">
                     <input type="text" placeholder="Delegation" id="delegation" />
                     <input type="text" placeholder="Agenda" id="agenda" />
-                    <select id="committee" onChange={handleCommitteeChange}>
+                    <select id="committee"  className="committee_select" onChange={handleCommitteeChange}>
                         <option value="">Select Committee</option>
                         <option value="DISEC">DISEC</option>
                         <option value="ECOFIN">ECOFIN</option>

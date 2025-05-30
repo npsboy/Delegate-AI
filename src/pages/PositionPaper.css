@@ -170,7 +170,12 @@ body {
 }
 
 #word-limit{
+    padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
     background-color: rgb(231, 231, 231);
     color: #000;
     margin-top: 10px;
+    width: 220px;
 }
