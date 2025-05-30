@@ -86,7 +86,8 @@ function Dashboard() {
               setCommitteeLogo("/icons/" + Committee.toLowerCase() + ".png");
           }
           else {
-              setCommitteeLogo("/icons/un.png");
+              console.log("setting url")
+              setCommitteeLogo(process.env.PUBLIC_URL + "/icons/un.png");
           }
 
           get_stance();
@@ -103,7 +104,7 @@ function Dashboard() {
               <div className={styles.center_section}>
                 <h2 className={styles.committee_text}>
                   <span>
-                    {Committee}  <img className={styles.committee_logo} src={committee_logo} alt="DISEC" />
+                    {Committee}  <img className={styles.committee_logo} src={committee_logo}    onError={(e) => { e.target.src = process.env.PUBLIC_URL + "/icons/un.png"; }} alt="DISEC" />
                   </span>
                 </h2>
                 <p className={styles.agenda_label}>Agenda:</p>

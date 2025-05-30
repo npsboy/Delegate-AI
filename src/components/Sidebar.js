@@ -18,7 +18,7 @@ function Sidebar() {
             </h1>
             <ul>
               <li onClick={() => navigate('/dashboard')}>Dashboard</li>
-              <li onClick={handleCreatePositionPaper}>Create position paper</li>
+              <li onClick={handleCreatePositionPaper}>Position paper</li>
               <li onClick={() => navigate('/speeches')}>Draft speeches</li>
               <li onClick={() => navigate('/allies')}>View allies</li>
             </ul>
