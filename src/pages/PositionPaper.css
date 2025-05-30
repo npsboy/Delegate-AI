@@ -111,7 +111,7 @@ body {
     cursor: pointer;
     width: 150px;
     align-self: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .markdown {
@@ -167,4 +167,10 @@ body {
     width: 22px;
     margin-left: 5px;
     vertical-align: middle;
+}
+
+#word-limit{
+    background-color: rgb(231, 231, 231);
+    color: #000;
+    margin-top: 10px;
 }

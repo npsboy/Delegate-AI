@@ -58,7 +58,7 @@ function Speeches() {
     }, [speeches]);
 
 
-    async function writeSpeech(id) {
+    async function writeSpeech(id, wordLimit) {
         let speechType = speeches[id - 1].type;
         let speechSubtitle = speeches[id - 1].subtitle;
 
@@ -70,8 +70,7 @@ function Speeches() {
             }
         }
 
-        let prompt = `Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown.`;
-
+        let prompt = `Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown. word limit = ${wordLimit}`;
         if (speechSubtitle) {
             prompt += ` The topic is: ${speechSubtitle}.`;
         }

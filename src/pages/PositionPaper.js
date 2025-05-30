@@ -44,6 +44,7 @@ function PositionPaper() {
         setLoading(true);
         setShowAdjust(true);
         setShowPositionPaper(false);
+        let wordCount = document.getElementById("word-limit").value
         let prompt = `Write a position paper for ${Delegation} on the ${Agenda} in the ${Committee} committee. in markdown.`;
         if (caseStudies) {
             prompt += " Include case studies.";
@@ -54,6 +55,7 @@ function PositionPaper() {
         if (Simplify) {
             prompt += " Simplify the language.";
         }
+        prompt += "word limit = " + wordCount
         console.log(prompt);
         const response = await send_to_gpt(prompt);
         setPositionPaper({
@@ -66,7 +68,6 @@ function PositionPaper() {
         }));
         setLoading(false);
         setShowPositionPaper(true);
-        console.log(response);
     }
 
 
@@ -116,6 +117,12 @@ function PositionPaper() {
                             <label>Simplify:</label>
                             <ToggleSwitch checked={Simplify} onChange={setSimplify}/>
                         </span>
+                        
+                        <select id="word-limit">
+                            <option value="400">400 words (1 page)</option>
+                            <option value="600" selected>600 words (1.5 pages)</option>
+                            <option value="800">800 words (2 pages)</option>
+                        </select>
 
                         <button className="generate-button" onClick={handleGenerate}>Generate</button>
                         </div>
@@ -153,6 +160,12 @@ function PositionPaper() {
                             <label>Simplify:</label>
                             <ToggleSwitch checked={Simplify} onChange={setSimplify}/>
                         </span>
+                        
+                        <select id="word-limit">
+                            <option value="400">400 words (1 page)</option>
+                            <option value="600" selected>600 words (1.5 pages)</option>
+                            <option value="800">800 words (2 pages)</option>
+                        </select>
 
                         <span className="regenerate" onClick={handleGenerate}>
                             <a className="regenerate_text">Regenerate</a>

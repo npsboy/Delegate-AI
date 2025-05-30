@@ -35,3 +35,7 @@ img {
   margin-top: 50px;
   cursor: pointer;
 }
+
+select {
+  width: 200px
+}
