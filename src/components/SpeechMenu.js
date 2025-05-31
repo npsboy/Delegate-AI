@@ -32,7 +32,7 @@ function SpeechMenu({ speeches, currentId, onSelect, onAdd, onDelete, onChange }
                                     {hoveredId === speech.id && (
                                         <img
                                             className="delete_icon"
-                                            src="/images/delete.png"
+                                            src={process.env.PUBLIC_URL + "/images/delete.png"}
                                             alt="Delete"
                                             onClick={(event) => onDelete(event, speech.id)}
                                         />
