@@ -133,10 +133,10 @@ function Dashboard() {
         </>}
         {loading && <>
           <div className={styles.loading}>
-            <img className={styles.dashboard_un_logo} src="./icons/un.png" />
+            <img className={styles.dashboard_un_logo} src={process.env.PUBLIC_URL + "/icons/un.png"} />
             <h1 className={styles.dashboard_title}>Delegate <span className={styles.highlight}>AI</span></h1>
             <p className={styles.loading_text}>Loading...</p>
-            <img className={styles.dashboard_loading_gif} src="./images/loading-animation.gif" />
+            <img className={styles.dashboard_loading_gif} src={process.env.PUBLIC_URL + "./images/loading-animation.gif"} />
             <p className={styles.loading_text_2}>Taking too long? Don't worry this happens only once.</p>
           </div>
         </>}

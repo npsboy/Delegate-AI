@@ -17,7 +17,7 @@ body {
   height: 100vh;
   justify-content: space-around;
   padding: 20px;
-  gap: 250px;
+  gap: 30px;
 }
 
 .menu {
@@ -178,4 +178,116 @@ body {
 .speeches-loading{
   width: 100px;
   height: 100px;
+}
+
+.Chat {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+    position: relative;
+
+}
+
+.chatbot_img{
+  height: 130px;
+  width: 130px;
+  align-self: center;
+  margin-top: 0px;
+}
+
+.container {
+  width: 100%;
+}
+
+.chat_title{
+  align-self: center;
+  text-align: center;
+}
+
+.chat_subtitle{
+  color: #6d6d6d;
+  align-self: center;
+  text-align: center;
+}
+
+.input_area{
+  display: flex;
+  align-self: center;
+    position: absolute;
+  bottom: 60px;
+  margin-left: 20px;
+}
+
+textarea{
+  background-color: #181717;
+  color: white;
+  border-radius: 7px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  resize: none;
+  width: 680px;
+  height: 80px;
+  padding: 10px;
+  border-right: none;
+}
+
+textarea:focus {
+  outline: none; /* removes the browser’s focus ring */
+}
+
+.send_button{
+  bottom: 100px;
+  right: 110px;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.send_area{
+  background-color: #181717;
+  border: 2px, solid, #555;
+  border-left: none;
+  border-radius: 7px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 50px
+}
+
+.chatDisplay{
+  height: 45%;
+  width: 97%;
+  margin-left: 20px;
+  padding-top: 10px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+.userMessage{
+  background-color: #3B3838;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.botReply_area{
+  display: flex;
+}
+
+.reply{
+  margin-top: 10px;
+  margin-left: 10px;
+  max-width: 500px;
+}
+
+.botReply_area img{
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
 }
