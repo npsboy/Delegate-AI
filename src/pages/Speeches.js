@@ -8,7 +8,6 @@ import UserContext from "../components/UserContext";
 import {send_to_gpt} from "../services/BackendServices";
 import ReactMarkdown from 'react-markdown';
 import SpeechCard from "../components/SpeechCard";
-import { render } from "@testing-library/react";
 
 function Speeches() {
 
