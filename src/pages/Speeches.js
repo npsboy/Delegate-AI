@@ -77,7 +77,9 @@ function Speeches() {
             }
         }
 
-        let prompt = `Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown. word limit = ${wordLimit}`;
+        let prompt = `Instructions:
+                        If you don't receive a proper speech topic, return "invalid".
+                        Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown. word limit = ${wordLimit}`;
         if (!Agenda || !Committee || !Delegation){
             alert("error. try reloading the page")
             return
@@ -87,6 +89,17 @@ function Speeches() {
         }
         setLoading(true);
         const response = await send_to_gpt(prompt)
+        if (
+            response === "invalid" ||
+            response === "Invalid" ||
+            response === "invalid." ||
+            response === "Invalid."
+        ) {
+            alert("Please choose a proper topic.")
+            setLoading(false)
+            setDisplaySpeechContent(false)
+            return
+        }
         let speechContent_copy = [...speechContent]
         speechContent_copy[id - 1] = response;
         localStorage.setItem("speechContent", JSON.stringify(speechContent_copy));
@@ -355,7 +368,7 @@ function Speeches() {
                 </div>
                 {openInChat && <>
                 <div className="Chat">
-                    <img className="chatbot_img" src={process.env.PUBLIC_URL + "/images/chatbot.png"}/>
+                    <img className="chatbot_img" src={process.env.PUBLIC_URL + "/images/chatbot_regular.png"}/>
                     <h1 className="chat_title">
                         Delegate <span className="highlight">AI</span>
                     </h1>
@@ -364,9 +377,9 @@ function Speeches() {
                         {chatHis.map(renderChat)}
                     </div>
                     <span className="input_area">
-                        <textarea placeholder="Type here" id="chat_input"/>
+                        <textarea placeholder="Ask me to rewrite or polish your text..." id="chat_input"/>
                         <div className="send_area"> 
-                            <img className="send_button" src={process.env.PUBLIC_URL + "/images/send.png"}/>
+                            <img className="send_button" src={process.env.PUBLIC_URL + "/images/send.png"} onClick={sendMessage}/>
                         </div>
                     </span>
                     <span className="go_back" onClick={goBack}>

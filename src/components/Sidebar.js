@@ -23,7 +23,7 @@ function Sidebar() {
               <li onClick={() => navigate('/allies')}>View allies</li>
             </ul>
             <span className="delete" onClick={handleDeleteHistory}>
-              <a>Clear Session</a>
+              <a>Start Afresh</a>
               <img src={process.env.PUBLIC_URL + "/images/delete.png"}/>
             </span>
         </div>

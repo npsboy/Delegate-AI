@@ -191,8 +191,8 @@ body {
 }
 
 .chatbot_img{
-  height: 130px;
-  width: 130px;
+  height: 80px;
+  width: 80px;
   align-self: center;
   margin-top: 0px;
 }
@@ -226,7 +226,7 @@ textarea{
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   resize: none;
-  width: 680px;
+  width: 660px;
   height: 80px;
   padding: 10px;
   border-right: none;
@@ -252,11 +252,11 @@ textarea:focus {
   border-radius: 7px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  width: 50px
+  width: 55px;
 }
 
 .chatDisplay{
-  height: 45%;
+  height: 55%;
   width: 97%;
   margin-left: 20px;
   padding-top: 10px;
