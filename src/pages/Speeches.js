@@ -29,7 +29,7 @@ function Speeches() {
 
     const [loading, setLoading] = React.useState(false);
 
-    const [openInChat, setOpenInChat] = React.useState(true)
+    const [openInChat, setOpenInChat] = React.useState(false)
 
     const[chatHis, setChatHis] = React.useState([])
 
@@ -79,6 +79,10 @@ function Speeches() {
         }
 
         let prompt = `Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown. word limit = ${wordLimit}`;
+        if (!Agenda || !Committee || !Delegation){
+            alert("error. try reloading the page")
+            return
+        }
         if (speechSubtitle) {
             prompt += ` The topic is: ${speechSubtitle}.`;
         }
@@ -179,6 +183,7 @@ function Speeches() {
 
     useEffect(() => {
       const input = document.getElementById("chat_input");
+      setChatHis([])
 
       function handleKeyDown(event) {
         if (event.key === "Enter" && !event.shiftKey) {
@@ -196,7 +201,7 @@ function Speeches() {
           input.removeEventListener("keydown", handleKeyDown);
         }
       };
-    }, []);
+    }, [openInChat]);
 
     useEffect(() => {
         if (loading) {
@@ -302,6 +307,14 @@ function Speeches() {
           }
         }, [chatHis]);
     }
+
+    function goBack (){
+        setOpenInChat(false)
+    }
+
+    function openChat(){
+        setOpenInChat(true)
+    }
     return (
         <div className="speeches-app">
             {!openInChat && <>
@@ -322,9 +335,15 @@ function Speeches() {
                 <div className="card">
                     {!displaySpeechContent && !loading && <SpeechCard id={currentId} speeches={speeches} writeSpeech={writeSpeech} />}
                     {displaySpeechContent && (
-                        <div className="speech-content">
-                            <ReactMarkdown>{speechContent[currentId - 1]}</ReactMarkdown>
-                        </div>
+                        <>
+                            <div className="speech-content">
+                                <ReactMarkdown>{speechContent[currentId - 1]}</ReactMarkdown>
+                            </div>
+                            <div className="button_area" onClick={openChat}>
+                                <a>Open in chat</a>
+                                <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>
+                            </div>
+                        </>
                     )}
                     {loading && <>
                         <h2 className="delegate_ai">Delegate AI</h2>
@@ -351,7 +370,10 @@ function Speeches() {
                             <img className="send_button" src={process.env.PUBLIC_URL + "/images/send.png"}/>
                         </div>
                     </span>
-                    
+                    <span className="go_back" onClick={goBack}>
+                        <img className="back_icon" src={process.env.PUBLIC_URL + "/images/back.png"}/>
+                        <a>Back</a>
+                    </span>
                 </div>
                 </>}
             </div>

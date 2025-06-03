@@ -24,7 +24,7 @@ function Sidebar() {
             </ul>
             <span className="delete" onClick={handleDeleteHistory}>
               <a>Clear Session</a>
-              <img src="./images/delete.png"/>
+              <img src={process.env.PUBLIC_URL + "/images/delete.png"}/>
             </span>
         </div>
     )

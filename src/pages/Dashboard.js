@@ -100,7 +100,7 @@ function Dashboard() {
           <div className={styles.dashboard}>
             <Sidebar />
         
-            <div className={styles.dashboard_main} style={{ backgroundImage: `url('/images/world-map-dark.png')` }}>
+            <div className={styles.dashboard_main} style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/world-map-dark.png'})` }}>
               <div className={styles.center_section}>
                 <h2 className={styles.committee_text}>
                   <span>
@@ -136,7 +136,7 @@ function Dashboard() {
             <img className={styles.dashboard_un_logo} src={process.env.PUBLIC_URL + "/icons/un.png"} />
             <h1 className={styles.dashboard_title}>Delegate <span className={styles.highlight}>AI</span></h1>
             <p className={styles.loading_text}>Loading...</p>
-            <img className={styles.dashboard_loading_gif} src={process.env.PUBLIC_URL + "./images/loading-animation.gif"} />
+            <img className={styles.dashboard_loading_gif} src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} />
             <p className={styles.loading_text_2}>Taking too long? Don't worry this happens only once.</p>
           </div>
         </>}
