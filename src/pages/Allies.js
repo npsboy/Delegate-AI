@@ -52,6 +52,8 @@ function Allies() {
                 let code =
                     country.countryCode.toLowerCase() === "uk"
                         ? "gb"
+                        : country.countryCode.toLowerCase() === "sk"
+                        ? "kr"
                         : country.countryCode.toLowerCase();
                 return { name: country.country, flag: `https://flagcdn.com/${code}.svg` };
             });
