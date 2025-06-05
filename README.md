@@ -1,6 +1,5 @@
-# Delegate AI <br>
-Helps you prepare for Model United Nations with AI. 
-
+<img src="public/images/banner.png" width="400"/>
+Helps you prepare for Model United Nations with AI. <br>
 ## Features:
 - Gives you a brief overview of your delegation and its stance.
 - Write a Position Paper.
