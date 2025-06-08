@@ -53,7 +53,12 @@ function Dashboard() {
   async function get_stance() {
     setLoading(true);
 
-    let prompt = `Return true or false 1 word. Is this a reasonable MUN committee: ${Committee} AND agenda: ${Agenda}?`;
+    let prompt = `Reply with one word: true or false.
+                  Is this a valid and reasonable MUN committee and agenda pair?
+                  If the committee is fake or the agenda doesn't fit the committee, return false
+                  committee: ${Committee}
+                  Agenda ${Agenda}`;
+                  
     let response = await send_to_gpt(prompt);
 
     response = response.toString().trim().replace(/\./g, '').toLowerCase();
