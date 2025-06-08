@@ -2,7 +2,7 @@
 
 Helps you prepare for Model United Nations with AI.
 
-[See this working](https://npsboy.github.io/delegate-ai/#/)
+[See this working](https://npsboy.github.io/Delegate-AI/)
 
 ## Features:
 - Gives you a brief overview of your delegation and its stance.
