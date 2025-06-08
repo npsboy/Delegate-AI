@@ -183,7 +183,7 @@ function Home() {
             <div className="block_page">
                 <img className="orange_logo" src={process.env.PUBLIC_URL + "/icons/favicon.png"}/>
                 <h1>Delegate <span className="highlight">AI</span></h1>
-                <p>This simulation functions only in full committee view — try again on a desktop.</p>
+                <p>Hey there! For the best MUN experience, please visit us from a desktop.</p>
             </div>
         </>}
         </>
