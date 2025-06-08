@@ -19,6 +19,7 @@
     "i18n-iso-countries": "^7.14.0",
     "jspdf": "^3.0.1",
     "react": "^19.1.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.6.0",

@@ -113,3 +113,34 @@ main h1 {
   color: white;
   font-size: 1rem;
 }
+
+.orange_logo{
+  height: 200px;
+  width: 220px;
+  align-self: center;
+  margin-top: 50px;
+}
+
+.block_page{
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.block_page h1 {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  align-self: center;
+  text-align: center;
+}
+
+.block_page p {
+  color: rgb(198, 195, 195);
+  max-width: 300px;
+  align-self: center;
+  text-align: center;
+}
