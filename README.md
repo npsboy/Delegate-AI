@@ -1,4 +1,9 @@
-<img src="public/images/banner.png" width="400"/>
+<picture>
+  <source srcset="public/images/banner.png" media="(prefers-color-scheme: dark)">
+  <img src="public/images/banner_light.png" alt="Banner" width="400">
+</picture>
+
+
 
 Helps you prepare for Model United Nations with AI.
 
