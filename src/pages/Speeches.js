@@ -281,6 +281,13 @@ function Speeches() {
             setDisplaySpeechContent(true)
             return
         }
+        if (response.speech == "Honorable chair and ..."){
+            setChatHis(prevArray => prevArray.slice(0, -1))
+            alert("Something went wrong. Try reloading.")
+            setLoading(false)
+            setDisplaySpeechContent(true)
+            return
+        }
         chatHis_copy.push({"role":"bot", "message": chat_reply})
         setChatHis(prev => [...prev, {role: "bot", message: chat_reply}])
 
@@ -351,10 +358,12 @@ function Speeches() {
                             <div className="speech-content">
                                 <ReactMarkdown>{speechContent[currentId - 1]}</ReactMarkdown>
                             </div>
-                            <div className="button_area" onClick={openChat}>
-                                <a>Open in chat</a>
-                                <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>
-                            </div>
+                            {!openInChat && <>
+                                <div className="button_area" onClick={openChat}>
+                                    <a>Open in chat</a>
+                                    <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>
+                                </div>
+                            </>}
                         </>
                     )}
                     {loading && <>

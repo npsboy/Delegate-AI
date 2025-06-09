@@ -304,6 +304,7 @@ textarea:focus {
 }
 
 .button_area{
+  background-color: white;
   color: #000;
   position: absolute;
   bottom: 30px;
