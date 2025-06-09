@@ -18,6 +18,7 @@
     "html2pdf.js": "^0.10.3",
     "i18n-iso-countries": "^7.14.0",
     "jspdf": "^3.0.1",
+    "logrocket": "^10.1.0",
     "react": "^19.1.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^19.1.0",
