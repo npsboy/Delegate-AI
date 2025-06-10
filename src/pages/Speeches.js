@@ -79,7 +79,7 @@ function Speeches() {
 
         let prompt = `Instructions:
                         If you don't receive a proper speech topic, return "invalid".
-                        Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. in markdown. word limit = ${wordLimit}`;
+                        Write a ${speechType} speech for ${Delegation} on the agenda of ${Agenda} in the ${Committee} committee. word limit = ${wordLimit}`;
         if (!Agenda || !Committee || !Delegation){
             alert("error. try reloading the page")
             return
@@ -234,9 +234,13 @@ function Speeches() {
         console.log("chatHis coppy = ", chatHis_copy)
         let old_speech = JSON.parse(localStorage.getItem("speechContent"))
         old_speech = old_speech[currentId-1]
+
+        let speechSubtitle = speeches[currentId - 1].subtitle;
+        console.log("speechSubtitle= ", speechSubtitle)
         const format = `{"chat":"---blah blah---", "speech":"Honorable chair and ..."}`
         const prompt = `
-        You are an assistant that edits speeches based on user requests.
+        You are an assistant that edits MUN speeches based on user requests.
+        your agenda is ${Agenda}. Committee: ${Committee}, Delegation: ${Delegation}, Speech topic: ${speechSubtitle}
 
         Instructions:
         - Proceed only if the request pertains directly to editing the speech.
@@ -356,9 +360,9 @@ function Speeches() {
                     {displaySpeechContent && (
                         <>
                             <div className="speech-content">
-                                <ReactMarkdown>{speechContent[currentId - 1]}</ReactMarkdown>
+                                <ReactMarkdown id="speech_md">{speechContent[currentId - 1]}</ReactMarkdown>
                             </div>
-                            {!openInChat && <>
+                            {!openInChat && <>  
                                 <div className="button_area" onClick={openChat}>
                                     <a>Open in chat</a>
                                     <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>

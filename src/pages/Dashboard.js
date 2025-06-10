@@ -58,9 +58,7 @@ function Dashboard() {
                   If the committee is fake or the agenda doesn't fit the committee, return false
                   committee: ${Committee}
                   Agenda ${Agenda}`;
-                  
     let response = await send_to_gpt(prompt);
-
     response = response.toString().trim().replace(/\./g, '').toLowerCase();
     if (response === "false") {
       alert("invalid Agenda or Committee");
