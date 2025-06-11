@@ -133,7 +133,7 @@ function Dashboard() {
 
             <div className={styles.country_section}>
               <h2 className={styles.country}>
-                {Delegation}
+                {Delegation.toUpperCase()}
                 <span><img className={styles.flag} src={countryData ? countryData.flag : ""} /></span>
               </h2>
               <p>
