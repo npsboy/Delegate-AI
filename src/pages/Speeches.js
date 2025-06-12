@@ -278,12 +278,15 @@ function Speeches() {
                 return
             }
         }
-        const chat_reply = response.chat
+        let chat_reply = response.chat
         if (chat_reply == "invalid") {
             setChatHis(prev => [...prev, {role: "bot", message: `Let’s keep things on track! I can only help with editing your speech. Ask me how to improve your argument, tone, or clarity!`}])
             setLoading(false)
             setDisplaySpeechContent(true)
             return
+        }
+        if (chat_reply == "---blah blah---"){
+            chat_reply = "Speech edited."
         }
         if (response.speech == "Honorable chair and ..."){
             setChatHis(prevArray => prevArray.slice(0, -1))
