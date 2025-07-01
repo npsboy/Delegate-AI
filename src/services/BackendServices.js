@@ -11,5 +11,9 @@ async function send_to_gpt(message) {
             console.error('Error sending message to GPT:', error);
         }
 }
+
+async function humanizeAI(text) {
+    
+}
     
 export { send_to_gpt };

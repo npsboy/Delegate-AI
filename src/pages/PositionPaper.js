@@ -57,7 +57,8 @@ function PositionPaper() {
         }
         prompt += "word limit = " + wordCount
         console.log(prompt);
-        const response = await send_to_gpt(prompt);
+        let response = await send_to_gpt(prompt);
+        response = cleanMarkdown(response);
         setPositionPaper({
             title: "Position Paper" + " - " + Delegation,
             content: response
@@ -84,6 +85,15 @@ function PositionPaper() {
         window.location.reload();
 
     }
+
+    function cleanMarkdown(markdown) {
+      return markdown
+        .split('\n')             // Split into lines
+        .map(line => line.trimStart()) // Remove leading spaces
+        .join('\n')              // Rejoin lines
+        .trim();                 // Remove top/bottom blank lines
+    }
+
  
 
 
