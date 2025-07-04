@@ -33,6 +33,9 @@ function Dashboard() {
           response = await fetch('https://restcountries.com/v3.1/name/gb');
 
         }
+        else if (normalizedDelegation == "china") {
+          response = await fetch('https://restcountries.com/v3.1/name/cn');
+        }
         else {
           response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
         }

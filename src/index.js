@@ -4,7 +4,13 @@ import './index.css';
 import App from './pages/App';
 import reportWebVitals from './pages/reportWebVitals';
 import LogRocket from 'logrocket';
-LogRocket.init('ojatxp/delegate-ai');
+
+const isLocalhost = window.location.hostname === 'localhost' || 
+                    window.location.hostname === '127.0.0.1';
+
+if (!isLocalhost) {
+  LogRocket.init('ojatxp/delegate-ai');
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
