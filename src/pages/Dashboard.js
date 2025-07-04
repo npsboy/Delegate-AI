@@ -19,7 +19,27 @@ function Dashboard() {
 
   async function fetchCountryData() {
     try {
-      const response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
+      const normalizedDelegation = Delegation.trim().toLowerCase();
+      const netherlandsVariants = [
+        "netherlands",
+        "the netherlands",
+        "kingdom of the netherlands",
+        "kingdom of netherlands",
+        "netherland"
+      ];
+      let response;
+      if (!netherlandsVariants.includes(normalizedDelegation)) {
+        if (normalizedDelegation === "uk") {
+          response = await fetch('https://restcountries.com/v3.1/name/gb');
+
+        }
+        else {
+          response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
+        }
+      }
+      else {
+        response = await fetch('https://restcountries.com/v3.1/alpha/nld');
+      }
       let data = await response.json();
       data = data[0];
       let population = data.population;
@@ -112,6 +132,7 @@ function Dashboard() {
     }
   }, []);
 
+
   return (
     <>
       {!loading && <>
@@ -133,7 +154,7 @@ function Dashboard() {
 
             <div className={styles.country_section}>
               <h2 className={styles.country}>
-                {Delegation.toUpperCase()}
+                {Delegation ? Delegation.toUpperCase() : "Loading..."}
                 <span><img className={styles.flag} src={countryData ? countryData.flag : ""} /></span>
               </h2>
               <p>
