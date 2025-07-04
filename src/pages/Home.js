@@ -6,6 +6,8 @@ import UserContext from '../components/UserContext';
 import { useContext } from "react";
 import { useLocation } from 'react-router-dom';
 import { isMobile } from "react-device-detect";
+import LogRocket from 'logrocket';
+
 
 
 function Home() {
@@ -16,6 +18,9 @@ function Home() {
     const {Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee} = useContext(UserContext);
 
     const [blockMobile, setBlockMobile] = useState(false)
+
+    const isLocalhost = window.location.hostname === 'localhost' || 
+                        window.location.hostname === '127.0.0.1';
 
     useEffect(() => {
         if (isMobile) {
@@ -39,13 +44,19 @@ function Home() {
             ) {
                 setShowOtherCommittee(true)
                 document.getElementById("committee").value = "Other"
-                //document.getElementById("otherCommittee").value = committee
             }
         }
         if (localStorage.getItem("delegation") && localStorage.getItem("agenda") && localStorage.getItem("committee")) {
             setDelegation(localStorage.getItem("delegation"));
             setAgenda(localStorage.getItem("agenda"));
             setCommittee(localStorage.getItem("committee"));
+
+            if (!isLocalhost) {
+                LogRocket.identify(delegation, {
+                    Delegation: localStorage.getItem("delegation"),
+                    Committee: localStorage.getItem("committee"),
+                });
+            }
             navigate("/dashboard");
         }
     }, []);
@@ -85,6 +96,13 @@ function Home() {
                         localStorage.setItem("delegation", delegation);
                         localStorage.setItem("agenda", agenda);
                         localStorage.setItem("committee", committee);
+                        if (!isLocalhost) {
+                            LogRocket.identify(delegation, {
+                                Delegation: localStorage.getItem("delegation"),
+                                Committee: localStorage.getItem("committee"),
+                            });
+                        }
+
                         navigate("/dashboard");
                     } 
                     else {
