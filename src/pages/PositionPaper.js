@@ -67,6 +67,10 @@ function PositionPaper() {
             title: "Position Paper" + " - " + Delegation,
             content: response
         }));
+        console.log("positionPaper = ", {
+            title: "Position Paper" + " - " + Delegation,
+            content: response
+        });
         setLoading(false);
         setShowPositionPaper(true);
     }

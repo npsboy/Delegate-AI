@@ -85,7 +85,6 @@ function Home() {
                         localStorage.setItem("delegation", delegation);
                         localStorage.setItem("agenda", agenda);
                         localStorage.setItem("committee", committee);
-                        alert("Delegation name is valid. Proceeding to dashboard.");
                         navigate("/dashboard");
                     } 
                     else {
