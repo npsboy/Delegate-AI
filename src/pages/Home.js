@@ -97,9 +97,11 @@ function Home() {
                         localStorage.setItem("agenda", agenda);
                         localStorage.setItem("committee", committee);
                         if (!isLocalhost) {
+                            console.log("LogRocket is not running on localhost, identifying user");
+                            console.log("Delegation: ", delegation);
                             LogRocket.identify(delegation, {
-                                Delegation: localStorage.getItem("delegation"),
-                                Committee: localStorage.getItem("committee"),
+                                Delegation: delegation,
+                                Committee: committee,
                             });
                         }
 
