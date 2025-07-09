@@ -19,7 +19,7 @@ function Dashboard() {
 
   async function fetchCountryData() {
     try {
-      const normalizedDelegation = Delegation.trim().toLowerCase();
+      let normalizedDelegation = Delegation.trim().toLowerCase();
       const netherlandsVariants = [
         "netherlands",
         "the netherlands",
@@ -28,21 +28,18 @@ function Dashboard() {
         "netherland"
       ];
       let response;
-      if (!netherlandsVariants.includes(normalizedDelegation)) {
-        if (normalizedDelegation === "uk") {
-          response = await fetch('https://restcountries.com/v3.1/name/gb');
+      if (normalizedDelegation === "uk") {
+        normalizedDelegation = "gb";
+      } else if (normalizedDelegation === "china") {
+        normalizedDelegation = "cn";
+      } else if (netherlandsVariants.includes(normalizedDelegation)) {
+        normalizedDelegation = "nld";
+      } else if (normalizedDelegation === "india") {
+        normalizedDelegation = "republic of india";
+      }
 
-        }
-        else if (normalizedDelegation == "china") {
-          response = await fetch('https://restcountries.com/v3.1/name/cn');
-        }
-        else {
-          response = await fetch('https://restcountries.com/v3.1/name/' + Delegation);
-        }
-      }
-      else {
-        response = await fetch('https://restcountries.com/v3.1/alpha/nld');
-      }
+      response = await fetch('https://restcountries.com/v3.1/name/' + normalizedDelegation);
+
       let data = await response.json();
       data = data[0];
       let population = data.population;

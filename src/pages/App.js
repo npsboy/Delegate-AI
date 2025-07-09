@@ -8,6 +8,7 @@ import UserContext from '../components/UserContext';
 import PositionPaper from './PositionPaper';
 import Allies from './Allies';
 import Speeches from './Speeches';
+import Press from './Press';
 
 function App() {
   const [Delegation, setDelegation] = useState(null);
@@ -23,6 +24,7 @@ function App() {
             <Route path="/position-paper" element={<PositionPaper />} />
             <Route path="/speeches" element={<Speeches />} />
             <Route path="/allies" element={<Allies />} />
+            <Route path="/press" element={<Press />} />
           </Routes>
       </HashRouter>
     </UserContext.Provider>
