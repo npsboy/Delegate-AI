@@ -7,7 +7,10 @@
 
 Helps you prepare for Model United Nations with AI.
 
-[See this working](https://npsboy.github.io/Delegate-AI/)
+[See this working](https://npsboy.github.io/Delegate-AI/) <br> <br>
+
+<img src="public/images/Delegate-AI.gif" alt="Banner" width="800">
+
 
 ## Features:
 - Gives you a brief overview of your delegation and its stance.
@@ -21,4 +24,3 @@ Helps you prepare for Model United Nations with AI.
 
 ## What is MUN?
 Model United Nations (MUN) is a simulation of the United Nations that teaches students about diplomacy, the workings of the United Nations, etc. During a MUN, delegates assume the roles of representatives of countries to collaborate and present global issues in "Committees" simulating the UN.
-
