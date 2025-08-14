@@ -40,6 +40,12 @@ function Press() {
   }
 
   async function get_questions(){
+
+    if (!Delegation || !Agenda || !Committee) {
+      alert("Something went wrong. Please refresh the page and try again.");
+      return;
+    }
+
     setLoading(true);
     let format = [
       {
