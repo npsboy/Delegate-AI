@@ -29,7 +29,7 @@ function Press() {
 
   const [current_Question, setCurrentQuestion] = useState(-1); // -1 used instead of false
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   function toggleQuestion(index) {
     if (current_Question === index) {
@@ -52,11 +52,18 @@ function Press() {
     let response = await send_to_gpt(prompt);
     let data = JSON.parse(response);
     setQuestions(data);
+    localStorage.setItem("pressQuestions", JSON.stringify(data));
     setLoading(false);
   }
 
   useEffect(() => {
-    get_questions();
+    if (localStorage.getItem("pressQuestions")){
+      let stored_data = JSON.parse(localStorage.getItem("pressQuestions"))
+      setQuestions(stored_data)
+    }
+    else {
+      get_questions();
+    }
   }, []);
 
   return (
