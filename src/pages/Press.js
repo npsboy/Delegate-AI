@@ -5,6 +5,7 @@ import {send_to_gpt} from "../services/BackendServices";
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import UserContext from '../components/UserContext'; 
+import LoadingScreen from '../components/LoadingScreen';
 
 function Press() {
 
@@ -28,6 +29,8 @@ function Press() {
 
   const [current_Question, setCurrentQuestion] = useState(-1); // -1 used instead of false
 
+  const [loading, setLoading] = useState(true);
+
   function toggleQuestion(index) {
     if (current_Question === index) {
       setCurrentQuestion(-1);
@@ -37,6 +40,7 @@ function Press() {
   }
 
   async function get_questions(){
+    setLoading(true);
     let format = [
       {
         question: "",
@@ -47,8 +51,8 @@ function Press() {
       Give me 3 challenging press questions. Use simple. short and direct language. Dig up controversies. format: ${JSON.stringify(format)}`;
     let response = await send_to_gpt(prompt);
     let data = JSON.parse(response);
-    alert(data);
     setQuestions(data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -58,6 +62,8 @@ function Press() {
   return (
     <div className="press-body">
       <Sidebar/>
+      {loading && <LoadingScreen label="Loading Press Questions..." />}
+      {!loading && <>
       <div className='press'>
         <h1>Press Questions</h1>
 
@@ -82,6 +88,7 @@ function Press() {
         </div>
 
       </div>
+      </>}
     </div>
   )
 
