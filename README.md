@@ -14,6 +14,7 @@ Helps you prepare for Model United Nations with AI.
 - Write a Position Paper.
 - Draft speeches including GSL and Moderated Caucus.
 - View allies and rivals.
+- Asks you mock "Press" Questions to prepare for the real deal in MUNs.
 
 ## Limitations:
 - Does not support committees like the "All India Political Parties Meet (AIPPM)" or local affairs in the "Joint Crisis Committee (JCC)".
