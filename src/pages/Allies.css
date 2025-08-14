@@ -73,37 +73,4 @@
     font-weight: lighter;
 }
 
-.loading{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: center;
-    margin-top: 5%;
-}
-
-.loading p {
-    margin-top: 30px;
-    align-self: center;
-}
-
-.loading h1{
-    align-self: center;
-    font-size: 40px;
-    margin-top: 20px;
-}
-
-.loading-gif {
-    width: 100px;
-    height: 100px;
-    align-self: center;
-}
-
-.allies-un-logo{
-    width: 230px;
-    height: 200px;
-    filter: brightness(100%);
-    align-self: center;
-}
-
 

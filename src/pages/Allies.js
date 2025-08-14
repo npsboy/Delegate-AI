@@ -3,6 +3,7 @@ import "./Allies.css";
 import Sidebar from "../components/Sidebar";
 import UserContext from "../components/UserContext";
 import { send_to_gpt } from "../services/BackendServices";
+import LoadingScreen from "../components/LoadingScreen";
 
 function Allies() {
     const [allies, setAllies] = useState([
@@ -122,12 +123,7 @@ function Allies() {
                     </>
                 )}
                 {loading && (
-                    <div className="loading">
-                        <img src={process.env.PUBLIC_URL + "/icons/un.png"} className="allies-un-logo" alt="UN Logo" />
-                        <h1>Delegate AI</h1>
-                        <p>Loading Allies and Rivals...</p>
-                        <img src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} className="loading-gif" alt="Loading..." />
-                    </div>
+                    <LoadingScreen label="Loading Allies and Rivals..." />
                 )}
             </div>
         </div>

@@ -1,0 +1,52 @@
+.press-body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.press{
+  padding: 50px;
+}
+
+#q_container {
+  margin-top: 50px;
+}
+
+.Question {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 20px;
+  max-width: 700px;
+}
+
+.Answer {
+  margin-bottom: 20px;
+  color: #BFBFBF;
+  font-size: 16px;
+  max-width: 700px;
+}
+
+.Q_box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+.Q_box button {
+  background-color: #ED7D31;
+  font-size: 30px;
+  border-radius: 100px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.Q_box button:hover {
+  background-color: #FF8C42;
+}

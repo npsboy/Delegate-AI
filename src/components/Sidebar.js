@@ -21,6 +21,7 @@ function Sidebar() {
               <li onClick={handleCreatePositionPaper}>Position paper</li>
               <li onClick={() => navigate('/speeches')}>Draft speeches</li>
               <li onClick={() => navigate('/allies')}>View allies</li>
+              <li onClick={() => navigate('/press')}>Press Yourself</li>
             </ul>
             <span className="delete" onClick={handleDeleteHistory}>
               <a>Start Afresh</a>
