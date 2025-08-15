@@ -10,18 +10,7 @@ import LoadingScreen from '../components/LoadingScreen';
 function Press() {
 
   const [questions, setQuestions] = useState([
-    {
-      question: "What is your country’s stance on the crisis in Yemen?",
-      answer: "We are deeply concerned by the humanitarian crisis in Yemen and call for increased international aid and cooperation."
-    },
-    {
-      question: "How does Israel justify its stance on nuclear ambiguity in the Middle East?",
-      answer: "Israel maintains a policy of nuclear ambiguity as a strategic deterrent in a volatile region, without officially confirming or denying possession of nuclear weapons."
-    },
-    {
-      question: "What is Israel's view on Iran’s missile and nuclear program?",
-      answer: "Israel considers Iran’s missile and nuclear program a major threat to regional security and calls for stronger international inspections and deterrents."
-    }
+
   ]);
 
   const {Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee} = useContext(UserContext);
@@ -46,19 +35,31 @@ function Press() {
       return;
     }
 
+    let question_type = document.querySelector("select").value;
+
     setLoading(true);
+
     let format = [
       {
         question: "",
         answer: ""
       }
     ]
-    let prompt = `I am the delegate of ${Delegation}. My agenda is ${Agenda}. My committee is ${Committee}. 
-      Give me 3 challenging press questions. Use simple. short and direct language. Dig up controversies. format: ${JSON.stringify(format)}`;
+    let prompt
+    if (question_type == "Agenda") {
+      prompt = `I am the delegate of ${Delegation}. My agenda is ${Agenda}. My committee is ${Committee}. 
+      Give me 3 challenging press questions. Use simple, short and direct language. Dig up controversies. format: ${JSON.stringify(format)}`;
+    }
+    else {
+      prompt = `I am the delegate of ${Delegation}. My committee is ${Committee}. 
+      Give me 3 challenging press questions. Use simple, short and direct language. Dig up controversies. format: ${JSON.stringify(format)}`;
+    }
     let response = await send_to_gpt(prompt);
     let data = JSON.parse(response);
-    setQuestions(data);
-    localStorage.setItem("pressQuestions", JSON.stringify(data));
+    let questions_list = questions
+    questions_list.unshift(...data);
+    setQuestions(questions_list);
+    localStorage.setItem("pressQuestions", JSON.stringify(questions_list));
     setLoading(false);
   }
 
@@ -99,11 +100,20 @@ function Press() {
             ))}
           
         </div>
-
       </div>
+      <div className='settings'>
+        <h2>Get more questions</h2>
+        <select>
+          <option value="Agenda" selected>Agenda Specific</option>
+          <option value="General">General</option>
+        </select>
+        <button className='generate' onClick={get_questions}>Get New Questions</button>
+      </div>
+
       </>}
+      
     </div>
-  )
+  );
 
 
 }

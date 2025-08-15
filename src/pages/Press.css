@@ -12,27 +12,29 @@
 
 #q_container {
   margin-top: 50px;
+  overflow: auto;
+  max-height: 70vh;
 }
 
 .Question {
   margin-bottom: 10px;
   color: white;
   font-size: 20px;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 .Answer {
   margin-bottom: 20px;
   color: #BFBFBF;
   font-size: 16px;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 .Q_box {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 750px;
 }
 
 .Q_box button {
@@ -49,4 +51,43 @@
 
 .Q_box button:hover {
   background-color: #FF8C42;
+}
+
+.settings{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  margin-top: 50px;
+}
+
+.settings select {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgb(231, 231, 231);
+  color: #000;
+  margin-top: 10px;
+  width: 220px;
+}
+
+.settings button {
+  background-color: #ED7D31;
+  height: 40px;
+  width: 220px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.settings button:hover {
+  background-color: #FF8C42;
+}
+
+.settings h2 {
+  color: white;
+  justify-self: left;
+  text-align: left;
+  margin-left: 0px;
+  font-size: 23px;
+  margin-bottom: 0px;
 }
