@@ -28,7 +28,7 @@ function PositionPaper() {
         title: "",
         content: ""
     });
-
+ 
     useEffect(() => {
         if (localStorage.getItem("positionPaper")) {
             const savedPositionPaper = JSON.parse(localStorage.getItem("positionPaper"));
