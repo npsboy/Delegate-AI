@@ -367,7 +367,7 @@ function Speeches() {
                             </div>
                             {!openInChat && <>  
                                 <div className="button_area" onClick={openChat}>
-                                    <a>Open in chat</a>
+                                    <span>Open in chat</span>
                                     <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>
                                 </div>
                             </>}
@@ -400,7 +400,7 @@ function Speeches() {
                     </span>
                     <span className="go_back" onClick={goBack}>
                         <img className="back_icon" src={process.env.PUBLIC_URL + "/images/back.png"}/>
-                        <a>Back</a>
+                        <span>Back</span>
                     </span>
                 </div>
                 </>}

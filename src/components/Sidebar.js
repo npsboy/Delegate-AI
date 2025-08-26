@@ -24,7 +24,7 @@ function Sidebar() {
               <li onClick={() => navigate('/press')}>Press Yourself</li>
             </ul>
             <span className="delete" onClick={handleDeleteHistory}>
-              <a>Start Afresh</a>
+              <span>Start Afresh</span>
               <img src={process.env.PUBLIC_URL + "/images/delete.png"}/>
             </span>
         </div>

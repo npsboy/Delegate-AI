@@ -147,7 +147,7 @@ function PositionPaper() {
                         </div>
                         <div className="download_section">
                             <span className="download_button" onClick={handleDownload}>
-                                <a>Download</a>
+                                <span>Download</span>
                                 <img className="download_icon" src={process.env.PUBLIC_URL + "/images/download.png"} alt="Download" />
                             </span>
                         </div>
@@ -182,7 +182,7 @@ function PositionPaper() {
                         </select>
 
                         <span className="regenerate" onClick={handleGenerate}>
-                            <a className="regenerate_text">Regenerate</a>
+                            <span className="regenerate_text">Regenerate</span>
                             <img className="regenerate_img" src={process.env.PUBLIC_URL + "/images/regenerate.png"} alt="Regenerate" />
                         </span>
                     </>}
