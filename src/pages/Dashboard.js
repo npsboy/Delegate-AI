@@ -155,7 +155,7 @@ function Dashboard() {
             <div className={styles.country_section}>
               <h2 className={styles.country}>
                 {Delegation ? Delegation.toUpperCase() : "Loading..."}
-                <span><img className={styles.flag} src={countryData ? countryData.flag : ""} /></span>
+                <span><img className={styles.flag} src={countryData ? countryData.flag : ""} alt={`${Delegation} flag`} /></span>
               </h2>
               <p>
                 <span className={styles.label}>Capital:</span> {countryData ? countryData.capital : 'Loading...'}
@@ -172,10 +172,10 @@ function Dashboard() {
       </>}
       {loading && <>
         <div className={styles.loading}>
-          <img className={styles.dashboard_un_logo} src={process.env.PUBLIC_URL + "/icons/un.png"} />
+          <img className={styles.dashboard_un_logo} src={process.env.PUBLIC_URL + "/icons/un.png"} alt="United Nations logo" />
           <h1 className={styles.dashboard_title}>Delegate <span className={styles.highlight}>AI</span></h1>
           <p className={styles.loading_text}>Loading...</p>
-          <img className={styles.dashboard_loading_gif} src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} />
+          <img className={styles.dashboard_loading_gif} src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} alt="Loading animation" />
           <p className={styles.loading_text_2}>Taking too long? Don't worry this happens only once.</p>
         </div>
       </>}

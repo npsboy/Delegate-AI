@@ -201,7 +201,7 @@ function Home() {
         </>}
         {blockMobile && <>
             <div className="block_page">
-                <img className="orange_logo" src={process.env.PUBLIC_URL + "/icons/favicon.png"}/>
+                <img className="orange_logo" src={process.env.PUBLIC_URL + "/icons/favicon.png"} alt="Delegate AI logo"/>
                 <h1>Delegate <span className="highlight">AI</span></h1>
                 <p>Hey there! For the best MUN experience, please visit us from a desktop.</p>
             </div>
