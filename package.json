@@ -12,7 +12,6 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
-    "gh-pages": "^6.3.0",
     "github-markdown-css": "^5.8.1",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.3",
@@ -53,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
