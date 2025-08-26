@@ -368,7 +368,7 @@ function Speeches() {
                             {!openInChat && <>  
                                 <div className="button_area" onClick={openChat}>
                                     <span>Open in chat</span>
-                                    <img src={process.env.PUBLIC_URL + "/images/forward.png"}/>
+                                    <img src={process.env.PUBLIC_URL + "/images/forward.png"} alt="Forward icon"/>
                                 </div>
                             </>}
                         </>
@@ -395,11 +395,11 @@ function Speeches() {
                     <span className="input_area">
                         <textarea placeholder="Ask me to rewrite or polish your text..." id="chat_input"/>
                         <div className="send_area"> 
-                            <img className="send_button" src={process.env.PUBLIC_URL + "/images/send.png"} onClick={sendMessage}/>
+                            <img className="send_button" src={process.env.PUBLIC_URL + "/images/send.png"} onClick={sendMessage} alt="Send button"/>
                         </div>
                     </span>
                     <span className="go_back" onClick={goBack}>
-                        <img className="back_icon" src={process.env.PUBLIC_URL + "/images/back.png"}/>
+                        <img className="back_icon" src={process.env.PUBLIC_URL + "/images/back.png"} alt="Back button"/>
                         <span>Back</span>
                     </span>
                 </div>
