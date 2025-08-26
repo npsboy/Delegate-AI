@@ -12,8 +12,4 @@ async function send_to_gpt(message) {
         }
 }
 
-async function humanizeAI(text) {
-    
-}
-    
 export { send_to_gpt };
