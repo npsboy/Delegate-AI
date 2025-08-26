@@ -316,7 +316,7 @@ function Speeches() {
         else {
             return(
                 <div className="botReply_area">
-                    <img src={process.env.PUBLIC_URL + "/images/chatbot_regular.png"} />
+                    <img src={process.env.PUBLIC_URL + "/images/chatbot_regular.png"} alt="Chatbot" />
                     <div className="reply">
                         {chat.message}
                     </div>
@@ -384,7 +384,7 @@ function Speeches() {
                 </div>
                 {openInChat && <>
                 <div className="Chat">
-                    <img className="chatbot_img" src={process.env.PUBLIC_URL + "/images/chatbot_regular.png"}/>
+                    <img className="chatbot_img" src={process.env.PUBLIC_URL + "/images/chatbot_regular.png"} alt="Chatbot" />
                     <h1 className="chat_title">
                         Delegate <span className="highlight">AI</span>
                     </h1>

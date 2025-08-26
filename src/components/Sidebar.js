@@ -25,7 +25,7 @@ function Sidebar() {
             </ul>
             <span className="delete" onClick={handleDeleteHistory}>
               <span>Start Afresh</span>
-              <img src={process.env.PUBLIC_URL + "/images/delete.png"}/>
+              <img src={process.env.PUBLIC_URL + "/images/delete.png"} alt="Delete history icon"/>
             </span>
         </div>
     )

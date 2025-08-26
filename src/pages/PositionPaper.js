@@ -108,13 +108,13 @@ function PositionPaper() {
             <div className="position-main">
                 <div className="position-paper">
                     {loading && <>
-                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"}/>
+                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"} alt="United Nations logo"/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <p id="pls_wait">Writing. Please wait...</p>
                         <img className="pp-loading" src={process.env.PUBLIC_URL + "/images/loading-animation.gif"} alt="Loading..." />
                     </>}
                     {showSetup && <>
-                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"} style={{height:"130px",  width:"150px"}}/>
+                        <img className="un_logo" src={process.env.PUBLIC_URL + "/icons/un.png"} alt="United Nations logo" style={{height:"130px",  width:"150px"}}/>
                         <h2 id="delegate_ai">Delegate AI</h2>
                         <div className="settings" style={{alignSelf:"center"}}>
                         <span>
