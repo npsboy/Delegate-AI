@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -r https://x-access-token:${GITHUB_TOKEN}@github.com/npsboy/Delegate-AI.git"
   },
   "eslintConfig": {
     "extends": [
