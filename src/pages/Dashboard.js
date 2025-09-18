@@ -74,8 +74,7 @@ function Dashboard() {
     setLoading(true);
 
     let prompt = `Reply with one word: true or false.
-                  Is this a valid and reasonable MUN committee and agenda pair?
-                  If the committee is fake or the agenda doesn't fit the committee, return false
+                  Is this a reasonable MUN committee and agenda?
                   committee: ${Committee}
                   Agenda ${Agenda}`;
     let response = await send_to_gpt(prompt);
