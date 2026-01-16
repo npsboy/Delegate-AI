@@ -2,7 +2,7 @@
   "name": "delegate-ai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://npsboy.github.io/Delegate-AI",
+  "homepage": "https://delegateai.npsboy.net",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
