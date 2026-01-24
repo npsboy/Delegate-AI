@@ -26,7 +26,8 @@ function PositionPaper() {
 
     const [positionPaper, setPositionPaper] = useState({
         title: "",
-        content: ""
+        content: "",
+        timestamp: Date.now()
     });
  
     useEffect(() => {
@@ -34,8 +35,9 @@ function PositionPaper() {
             const savedPositionPaper = JSON.parse(localStorage.getItem("positionPaper"));
             // Ensure content is a string
             const paperData = {
-                ...savedPositionPaper,
-                content: String(savedPositionPaper.content || '')
+                title: savedPositionPaper.title || "",
+                content: String(savedPositionPaper.content || ''),
+                timestamp: savedPositionPaper.timestamp || Date.now()
             };
             setPositionPaper(paperData);
             setShowPositionPaper(true);
@@ -70,18 +72,15 @@ function PositionPaper() {
         
         const paperData = {
             title: "Position Paper - " + Delegation,
-            content: contentString
+            content: contentString,
+            timestamp: Date.now()
         };
         
         setPositionPaper(paperData);
         localStorage.setItem("positionPaper", JSON.stringify(paperData));
         console.log("positionPaper = ", paperData);
         setLoading(false);
-        
-        // Small delay to ensure state is fully updated before showing
-        setTimeout(() => {
-            setShowPositionPaper(true);
-        }, 0);
+        setShowPositionPaper(true);
     }
 
 
@@ -152,7 +151,7 @@ function PositionPaper() {
                     </>}
                     {showPositionPaper && <>
                         <div className="position-paper-content" id="position-paper-content" ref={printRef}>
-                            <ReactMarkdown key={positionPaper.content} id="position-paper-md">{String(positionPaper.content || '')}</ReactMarkdown>
+                            <ReactMarkdown key={positionPaper.timestamp} id="position-paper-md">{String(positionPaper.content || '')}</ReactMarkdown>
                         </div>
                         <div className="download_section">
                             <span className="download_button" onClick={handleDownload}>
