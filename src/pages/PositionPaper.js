@@ -17,7 +17,7 @@ function PositionPaper() {
     const [Sources, setSources] = react.useState(false);
     const [Simplify, setSimplify] = react.useState(false);
 
-    const {Delegation, setDelegation, Agenda, setAgenda, Committee, setCommittee} = useContext(UserContext);
+    const {Delegation, Agenda, Committee} = useContext(UserContext);
 
     const [showAdjust, setShowAdjust] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,12 @@ function PositionPaper() {
     useEffect(() => {
         if (localStorage.getItem("positionPaper")) {
             const savedPositionPaper = JSON.parse(localStorage.getItem("positionPaper"));
-            setPositionPaper(savedPositionPaper);
+            // Ensure content is a string
+            const paperData = {
+                ...savedPositionPaper,
+                content: String(savedPositionPaper.content || '')
+            };
+            setPositionPaper(paperData);
             setShowPositionPaper(true);
             setShowSetup(false);
             setShowAdjust(true);
@@ -59,20 +64,24 @@ function PositionPaper() {
         console.log(prompt);
         let response = await send_to_gpt(prompt);
         response = cleanMarkdown(response);
-        setPositionPaper({
-            title: "Position Paper" + " - " + Delegation,
-            content: response
-        });
-        localStorage.setItem("positionPaper", JSON.stringify({
-            title: "Position Paper" + " - " + Delegation,
-            content: response
-        }));
-        console.log("positionPaper = ", {
-            title: "Position Paper" + " - " + Delegation,
-            content: response
-        });
+        
+        // Ensure response is a string
+        const contentString = String(response || '');
+        
+        const paperData = {
+            title: "Position Paper - " + Delegation,
+            content: contentString
+        };
+        
+        setPositionPaper(paperData);
+        localStorage.setItem("positionPaper", JSON.stringify(paperData));
+        console.log("positionPaper = ", paperData);
         setLoading(false);
-        setShowPositionPaper(true);
+        
+        // Small delay to ensure state is fully updated before showing
+        setTimeout(() => {
+            setShowPositionPaper(true);
+        }, 0);
     }
 
 
@@ -143,7 +152,7 @@ function PositionPaper() {
                     </>}
                     {showPositionPaper && <>
                         <div className="position-paper-content" id="position-paper-content" ref={printRef}>
-                            <ReactMarkdown id="position-paper-md">{positionPaper.content}</ReactMarkdown>
+                            <ReactMarkdown key={positionPaper.content} id="position-paper-md">{String(positionPaper.content || '')}</ReactMarkdown>
                         </div>
                         <div className="download_section">
                             <span className="download_button" onClick={handleDownload}>
