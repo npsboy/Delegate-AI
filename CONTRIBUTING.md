@@ -6,6 +6,7 @@ Thank you for your interest in contributing to Delegate-AI! This document provid
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
 - [How to Contribute](#how-to-contribute)
+- [Claiming Issues](#claiming-issues)
 - [Development Setup](#development-setup)
 - [Coding Standards](#coding-standards)
 - [Testing](#testing)
@@ -37,6 +38,24 @@ There are many ways to contribute to Delegate-AI:
 - **Improve documentation**: Help us improve our docs
 - **Write code**: Fix bugs or implement new features
 - **Review pull requests**: Help review code from other contributors
+
+## Claiming Issues
+
+We welcome contributions from everyone! If you'd like to work on an issue:
+
+1. **Find an issue**: Browse the [issue tracker](https://github.com/npsboy/Delegate-AI/issues) for open issues
+2. **Check assignment**: Make sure the issue is not already assigned to someone else
+3. **Request assignment**: Comment on the issue asking to be assigned (e.g., "I'd like to work on this issue. Can you please assign it to me?")
+4. **Wait for confirmation**: A maintainer will assign the issue to you
+5. **Start working**: Once assigned, follow the development workflow above
+
+### Guidelines for Claiming Issues
+
+- Only request assignment for issues you plan to work on immediately
+- If you're assigned to an issue but can no longer work on it, please comment on the issue to let us know
+- If you haven't made progress after 2 weeks, the issue may be unassigned and made available for others
+- Don't submit PRs for issues assigned to others without discussing first
+- For first-time contributors, look for issues labeled `good first issue` or `help wanted`
 
 ## Development Setup
 
