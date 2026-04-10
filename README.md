@@ -7,7 +7,7 @@
 
 Helps you prepare for Model United Nations with AI.
 
-[See this working](https://npsboy.github.io/Delegate-AI/) <br> <br>
+[See this working](https://delegateai.npsboy.net/) <br> <br>
 
 <img src="public/images/Delegate-AI.gif" alt="Banner" width="800">
 
