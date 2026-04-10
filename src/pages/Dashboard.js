@@ -36,6 +36,8 @@ function Dashboard() {
         normalizedDelegation = "nld";
       } else if (normalizedDelegation === "india") {
         normalizedDelegation = "republic of india";
+      } else if (normalizedDelegation === "iran") {
+        normalizedDelegation = "islamic republic of iran";
       }
 
       response = await fetch('https://restcountries.com/v3.1/name/' + normalizedDelegation);
