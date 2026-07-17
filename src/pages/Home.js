@@ -88,10 +88,29 @@ function Home() {
             setCommittee(committee);
             async function fetchData() {
                 try {
-                    const response = await fetch('https://restcountries.com/v3.1/name/' + delegation);
-                    let data = await response.json();
-                    data = data[0]
-                    let name = data.name; 
+                    const netherlandsVariants = [
+                        "netherlands",
+                        "the netherlands",
+                        "kingdom of the netherlands",
+                        "kingdom of netherlands",
+                        "netherland"
+                    ];
+                    let normalizedDelegation = delegation.trim().toLowerCase();
+                    if (normalizedDelegation === "uk") {
+                        normalizedDelegation = "united kingdom";
+                    } else if (netherlandsVariants.includes(normalizedDelegation)) {
+                        normalizedDelegation = "netherlands";
+                    }
+
+                    const response = await fetch('https://countries.dev/name/' + encodeURIComponent(normalizedDelegation));
+                    if (!response.ok) {
+                        throw new Error('Country not found');
+                    }
+                    let matches = await response.json();
+                    // The name endpoint can return multiple partial matches (e.g. "india" also
+                    // matches "British Indian Ocean Territory"), so prefer an exact name match.
+                    let data = matches.find(c => c.name && c.name.toLowerCase() === normalizedDelegation) || matches[0];
+                    let name = data.name;
                     if (name) {
                         localStorage.setItem("delegation", delegation);
                         localStorage.setItem("agenda", agenda);

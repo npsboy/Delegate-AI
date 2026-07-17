@@ -29,21 +29,20 @@ function Dashboard() {
       ];
       let response;
       if (normalizedDelegation === "uk") {
-        normalizedDelegation = "gb";
-      } else if (normalizedDelegation === "china") {
-        normalizedDelegation = "cn";
+        normalizedDelegation = "united kingdom";
       } else if (netherlandsVariants.includes(normalizedDelegation)) {
-        normalizedDelegation = "nld";
-      } else if (normalizedDelegation === "india") {
-        normalizedDelegation = "republic of india";
-      } else if (normalizedDelegation === "iran") {
-        normalizedDelegation = "islamic republic of iran";
+        normalizedDelegation = "netherlands";
       }
 
-      response = await fetch('https://restcountries.com/v3.1/name/' + normalizedDelegation);
+      response = await fetch('https://countries.dev/name/' + encodeURIComponent(normalizedDelegation));
+      if (!response.ok) {
+        throw new Error('Country not found');
+      }
 
-      let data = await response.json();
-      data = data[0];
+      let matches = await response.json();
+      // The name endpoint can return multiple partial matches (e.g. "india" also
+      // matches "British Indian Ocean Territory"), so prefer an exact name match.
+      let data = matches.find(c => c.name && c.name.toLowerCase() === normalizedDelegation) || matches[0];
       let population = data.population;
       function numberToWords(num) {
         if (num >= 1_000_000_000) {
@@ -57,12 +56,12 @@ function Dashboard() {
       }
       population = numberToWords(population);
       setCountryData({
-        capital: data.capital[0],
+        capital: data.capital,
         population: population,
         flag: data.flags.png,
       });
       localStorage.setItem("CountryData", JSON.stringify({
-        capital: data.capital[0],
+        capital: data.capital,
         population: population,
         flag: data.flags.png,
       }));

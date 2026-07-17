@@ -5,6 +5,7 @@ async function send_to_gpt(message) {
             const response = await axios.post('https://delegate-ai-backend.onrender.com/chat', {
                 prompt: message,
             })
+            console.log("response from backend = ", response);
             return response.data.reply;
         }
         catch (error) {

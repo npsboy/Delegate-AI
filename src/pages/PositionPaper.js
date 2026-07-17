@@ -66,7 +66,7 @@ function PositionPaper() {
         console.log(prompt);
         let response = await send_to_gpt(prompt);
         response = cleanMarkdown(response);
-        
+        console.log("raw response = ", response);
         // Ensure response is a string
         const contentString = String(response || '');
         
